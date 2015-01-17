@@ -9,7 +9,7 @@ Observer Pattern written in Go using channels.
 
 ```
 type Observer interface {
-	ReceiveEvents()
+	Listen()
 }
 ```
 
@@ -18,7 +18,7 @@ func NewDefaultObserver() *DefaultObserver
 	Returns a DefaultObserver struct
 
 
-func (this *DefaultObserver) ReceiveEvents()
+func (this *DefaultObserver) Listen()
 
 	Listens for events (run in goroutine)
 
@@ -72,7 +72,7 @@ func main() {
 
 	observable.Attach(obs)
 	go observable.Notify()
-	go obs.ReceiveEvents()
+	go obs.Listen()
 	time.Sleep(1 * 1e9)
 }
 ```

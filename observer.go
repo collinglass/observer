@@ -6,10 +6,10 @@ import (
 
 // Observer interface
 //
-// implements ReceiveEvents which
+// implements Listen which
 // listens to events emitted by observables
 type Observer interface {
-	ReceiveEvents()
+	Listen()
 }
 
 // Observable interface
@@ -48,7 +48,7 @@ func NewDefaultObserver() *DefaultObserver {
 //
 // receives events from observables it's
 // subscribed to
-func (this *DefaultObserver) ReceiveEvents() {
+func (this *DefaultObserver) Listen() {
 	s := <-this.Events
 	log.Printf("Received Event: %s\n", s)
 }
