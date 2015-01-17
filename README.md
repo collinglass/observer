@@ -5,6 +5,8 @@ Observer Pattern written in Go using channels.
 
 ## API
 
+### Observer
+
 ```
 type Observer interface {
 	ReceiveEvents()
@@ -20,6 +22,8 @@ func (this *DefaultObserver) ReceiveEvents()
 
 	Listens for events (run in goroutine)
 
+
+### Observable
 
 ```
 type Observable interface {
